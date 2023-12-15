@@ -1,76 +1,90 @@
 <!DOCTYPE html>
 <html lang="Zh-cn">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>加载中...</title>
-    <style>.loadingSeven{
-        width: 80px;
-        height: 40px;
-        margin: 0 auto;
-        margin-top:100px;
-    }
-    .loadingSeven span{
-        display: inline-block;
-        width: 8px;
-        height: 100%;
-        border-radius: 4px;
-        background: lightgreen;
-        -webkit-animation: loadsaven 1.04s ease infinite;
-    }
-    @-webkit-keyframes loadsaven{
-        0%,100%{
-            height: 40px;
-            background: lightgreen;
-        }
-        50%{
-            height: 60px;
-            margin-top: -20px;
-            background: lightblue;
-        }
-    }
-    .loadingSeven span:nth-child(2){
-        -webkit-animation-delay:0.13s;
-    }
-    .loadingSeven span:nth-child(3){
-        -webkit-animation-delay:0.26s;
-    }
-    .loadingSeven span:nth-child(4){
-        -webkit-animation-delay:0.39s;
-    }
-    .loadingSeven span:nth-child(5){
-        -webkit-animation-delay:0.52s;
-    }</style>
+    <script src="./js/cookie.js"></script>
+    <link rel="stylesheet" href="./js/bootstrap.min.css">
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./js/index.css">
 </head>
+
 <body>
-    <div class="loadingSeven">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <p>加载中...</p>
+    <!-- Modal -->
+    <div class="modal fade" id="index_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+        data-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">注册账号</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="login_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+        data-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 <script type="text/javascript">
-var t = setTimeout(function(){//使用setTimeout()会返回一个唯一的标示，通过clearTimeout(唯一标示)可以清楚延时器
-	function getBrowser(){ //判断浏览器是在android系统上还是在ios系统上
 
-    if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+    function getBrowser() { //判断浏览器是在android系统上还是在ios系统上
 
-    window.location.href = "sj/index.html"; //移动端页面
+        if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
 
-    }else{
+            window.location.href = "sj/index.html"; //移动端页面
 
-    window.location.href="pc/index.html"; //pc端页面
+        } else {
+
+            window.location.href = "pc/index.html"; //pc端页面
+
+        }
 
     }
 
+
+
+    function Print(a) {
+        console.log(a)
     }
+    window.onload = function () {
+        $('#index_modal').modal({
+            backdrop: 'static',
+            keyboard: false
+        });
+        let UserName = getCookie("user_name")
+        if (UserName != '') {
 
-    getBrowser();
-    },3000); //这里的1000代表的是1000毫秒(等于1秒)
-
+        } else {
+            $('#index_modal').modal('show')
+        }
+    }
 </script>
+
 </html>

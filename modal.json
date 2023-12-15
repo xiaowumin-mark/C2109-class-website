@@ -1,6 +1,6 @@
 {
-    "title":"有新版本安装",
-    "main":"<h1>你好</h1><p>你好</p>",
+    "title":"网站介绍",
+    "main":" <p>本网站由xiaowumin一人开发</p><p>前端使用标准网络技术,例如 HTML, CSS 和 JS</p><p>后端使用goland编程语言 + gin服务端框架 + gorm操作数据库</p><p>此项目前端已发布至 GitHub，<a style='color:blue;cursor: default;' onclick=\"window.open('https://github.com/xiaowumin-mark/C2109-class-website','_blank');\"data-descp=\"hide\">点击此处查看</a></p>",
     "btn":[
         {
             "text": "前往", 
