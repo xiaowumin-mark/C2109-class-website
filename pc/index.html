@@ -25,7 +25,7 @@
     <nav class="sidebar close">
         <header>
             <div class="image-text">
-                <span class="image">
+                <span onclick="toTabPep()" style="cursor: pointer;" class="image">
                     <img src="24934-c2109120120.png" alt="">
                 </span>
                 <div class="text logo-text">
@@ -62,7 +62,7 @@
                     </a>
                 </li>
 
-                <li onclick="location.href='?tab=img'" class="nav-link">
+                <li onclick="toTabImg()" class="nav-link">
                     <a>
                         <i class='bx bx-wallet icon'></i>
                         <span class="text nav-text">相册</span>
@@ -99,6 +99,8 @@
     </nav>
     <section id="main" class="home">
 
+        
+
     </section>
 
 
@@ -118,10 +120,22 @@
                 <div class="modal-footer" style="padding: 0px;">
                     <div id="ModalBtn" class="btn-group" role="group" aria-label="Basic example"
                         style="width: 100%;margin: 0px;">
-                   
+
                     </div>
 
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="position-fixed p-3 top-0 start-50 translate-middle-x" style="z-index: 100000">
+        <div id="liveToast" class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive"
+            aria-atomic="true" data-bs-delay="3000">
+            <div class="d-flex">
+                <div class="toast-body" id="Err_p">
+
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
             </div>
         </div>
     </div>

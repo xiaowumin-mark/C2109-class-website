@@ -7,7 +7,7 @@ function getBrowser() { //判断浏览器是在android系统上还是在ios系�
 
     } else {
 
-        window.location.href = "pc/index.html"; //pc端页面
+        window.location.href = "pc/index.html?tab=home"; //pc端页面
 
     }
 
@@ -15,29 +15,24 @@ function getBrowser() { //判断浏览器是在android系统上还是在ios系�
 
 
 
-function Print(a) {
-    console.log(a)
-}
+
 window.onload = function () {
 
     $('#index_modal').modal({
         backdrop: 'static',
         keyboard: false
     });
-    let UserName = getCookie("user_name")
-    if (UserName != '') {
 
+    if (window.localStorage.getItem('user_id') != null) {
+        //getBrowser()
     } else {
         $('#index_modal').modal('show')
-
-
-
     }
 }
 $("#gonew").on("click", function () {
     if (document.querySelectorAll("input")[4].value == document.querySelectorAll("input")[5].value) {
         $.ajax({
-            url: getCookie('ym') + "user/newUser",
+            url: window.localStorage.getItem('ym') + "user/newUser",
             type: 'post',
             contentType: 'application/json',
             data: JSON.stringify({
@@ -48,8 +43,15 @@ $("#gonew").on("click", function () {
                 "user_phone": document.querySelectorAll("input")[3].value
             }),
             success: function (res) {
-                console.log(res);
-                err("s", "注册成功")
+                //console.log(res);
+                if (res.message == "success") {
+                    err("s", "注册成功")
+                    window.localStorage.setItem("user_id", res.user_id)
+                    window.localStorage.setItem("user_pwd", res.user_pwd)
+                    getBrowser()
+                } else {
+                    err("e", res.message)
+                }
             }
         });
     } else {
@@ -57,3 +59,37 @@ $("#gonew").on("click", function () {
     }
 })
 
+$("#gologin").on("click", function () {
+    if (document.querySelectorAll("input")[9].value == document.querySelectorAll("input")[10].value) {
+        $.ajax({
+            url: window.localStorage.getItem('ym') + "user/login",
+            type: 'post',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                "user_pwd": document.querySelectorAll("input")[9].value,
+                "real_name": document.querySelectorAll("input")[6].value,
+                "user_email": document.querySelectorAll("input")[7].value,
+                "user_phone": document.querySelectorAll("input")[8].value
+            }),
+            success: function (res) {
+                //console.log(res);
+                if (res.message == "success") {
+                    err("s", "登录成功！")
+                    window.localStorage.setItem("user_id", res.user_id)
+                    window.localStorage.setItem("user_pwd", res.user_pwd)
+                    getBrowser()
+                } else {
+                    err("e", res.message)
+                }
+            }
+        });
+    } else {
+        err("e", "两次密码不一致")
+    }
+    Print(JSON.stringify({
+        "user_pwd": document.querySelectorAll("input")[9].value,
+        "real_name": document.querySelectorAll("input")[6].value,
+        "user_email": document.querySelectorAll("input")[7].value,
+        "user_phone": document.querySelectorAll("input")[8].value
+    }),)
+})

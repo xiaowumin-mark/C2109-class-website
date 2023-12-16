@@ -4,10 +4,10 @@ function getYm() {
         url: '../js/ym.json',
         type: 'get',
         success: function (res) {
-            setCookie("ym",res.ym,60)
+            window.localStorage.setItem("ym", res.ym)
         }
     });
-    
+
 }
 
 function err(h, test) {
@@ -23,4 +23,19 @@ function err(h, test) {
         toast.show()
     }
 
+}
+
+const queryReplace = (href, key, keyValue) => {
+    if (href.indexOf(key) > -1) {
+        let reg = new RegExp(`((?=${key}=).*?(?=&))|((?=${key}=).*)`)
+        href = href.replace(reg, `${key}=${keyValue}`)
+    } else {
+        let join = href.indexOf('?') > -1 ? '&' : '?'
+        href += `${join}${key}=${keyValue}`
+    }
+    return href
+}
+
+function Print(a) {
+    console.log(a)
 }

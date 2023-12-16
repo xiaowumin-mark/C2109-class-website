@@ -26,7 +26,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">注册账号</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h1 class="modal-title fs-5 " style="float: right;color: blue;cursor: default;"
+                        onclick="$('#index_modal').modal('hide');$('#login_modal').modal('show')">登录</h1>
                 </div>
                 <div class="modal-body">
                     <input class="form-control" type="text" placeholder="昵称" aria-label="default input example">
@@ -38,8 +39,8 @@
 
                 </div>
                 <div class="modal-footer">
-                    
-                    <button id="gonew" type="button" class="btn btn-primary">注册</button>
+
+                    <button style="margin: 0 auto;" id="gonew" type="button" class="btn btn-primary">注册</button>
                 </div>
             </div>
         </div>
@@ -49,25 +50,33 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">账户登录</h1>
+                    <h1 class="modal-title fs-5 " style="float: right;color: blue;cursor: default;"
+                        onclick="$('#index_modal').modal('show');$('#login_modal').modal('hide')">注册</h1>
                 </div>
                 <div class="modal-body">
-                    ...
+                    <input class="form-control" type="text" placeholder="真实姓名" aria-label="default input example">
+                    <br><input class="form-control" type="text" placeholder="邮箱" aria-label="default input example">
+                    <br><input class="form-control" type="text" placeholder="手机号" aria-label="default input example">
+                    <br><input class="form-control" type="text" placeholder="密码" aria-label="default input example">
+                    <br><input class="form-control" type="text" placeholder="再次输入密码" aria-label="default input example">
+
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+
+                    <button id="gologin" style="margin: 0 auto;" type="button" class="btn btn-primary">登录</button>
                 </div>
             </div>
         </div>
     </div>
+
+
     <div class="position-fixed p-3 top-0 start-50 translate-middle-x" style="z-index: 100000">
         <div id="liveToast" class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive"
             aria-atomic="true" data-bs-delay="3000">
             <div class="d-flex">
                 <div class="toast-body" id="Err_p">
-                 
+
                 </div>
                 <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
                     aria-label="Close"></button>
@@ -77,4 +86,5 @@
 </body>
 
 <script src="./js/start.js"></script>
+
 </html>
