@@ -11,6 +11,11 @@
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./js/index.css">
+    <link rel="stylesheet" href="./js/input.css">
+    <script src="./js/index.js"></script>
+    <script>
+        getYm()
+    </script>
 </head>
 
 <body>
@@ -24,11 +29,17 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    ...
+                    <input class="form-control" type="text" placeholder="昵称" aria-label="default input example">
+                    <br><input class="form-control" type="text" placeholder="真实姓名" aria-label="default input example">
+                    <br><input class="form-control" type="text" placeholder="邮箱" aria-label="default input example">
+                    <br><input class="form-control" type="text" placeholder="手机号" aria-label="default input example">
+                    <br><input class="form-control" type="text" placeholder="密码" aria-label="default input example">
+                    <br><input class="form-control" type="text" placeholder="再次输入密码" aria-label="default input example">
+
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    
+                    <button id="gonew" type="button" class="btn btn-primary">注册</button>
                 </div>
             </div>
         </div>
@@ -51,40 +62,19 @@
             </div>
         </div>
     </div>
+    <div class="position-fixed p-3 top-0 start-50 translate-middle-x" style="z-index: 100000">
+        <div id="liveToast" class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive"
+            aria-atomic="true" data-bs-delay="3000">
+            <div class="d-flex">
+                <div class="toast-body" id="Err_p">
+                 
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
 </body>
-<script type="text/javascript">
 
-    function getBrowser() { //判断浏览器是在android系统上还是在ios系统上
-
-        if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
-
-            window.location.href = "sj/index.html"; //移动端页面
-
-        } else {
-
-            window.location.href = "pc/index.html"; //pc端页面
-
-        }
-
-    }
-
-
-
-    function Print(a) {
-        console.log(a)
-    }
-    window.onload = function () {
-        $('#index_modal').modal({
-            backdrop: 'static',
-            keyboard: false
-        });
-        let UserName = getCookie("user_name")
-        if (UserName != '') {
-
-        } else {
-            $('#index_modal').modal('show')
-        }
-    }
-</script>
-
+<script src="./js/start.js"></script>
 </html>
