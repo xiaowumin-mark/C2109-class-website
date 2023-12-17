@@ -93,3 +93,4 @@ $("#gologin").on("click", function () {
         "user_phone": document.querySelectorAll("input")[8].value
     }),)
 })
+

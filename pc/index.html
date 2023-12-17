@@ -99,7 +99,7 @@
     </nav>
     <section id="main" class="home">
 
-        
+
 
     </section>
 
@@ -136,6 +136,46 @@
                 </div>
                 <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
                     aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">上传图片</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="formFileMultiple" class="form-label"></label>
+                        <input onchange="changepic()" class="form-control" type="file" id="formFileMultiple"
+                            multiple>
+                    </div>
+                    <div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    
+                                    <th scope="col">图片预览</th>
+                                    <th scope="col">介绍</th>
+                                    <th scope="col">是否为精选照片</th>
+                                </tr>
+                            </thead>
+                            <tbody id="upImgImg">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" id="upIMG" class="btn btn-primary">上传</button>
+                </div>
             </div>
         </div>
     </div>
